@@ -7,7 +7,7 @@ function MenuAppBar({ inOwnerPage }) {
         {inOwnerPage ? (
           <li>
             <Link
-              to={{pathname: "/", replace: true}}
+              to={{pathname: "/home", replace: true}}
               className="text-white font-semibold hover:text-gray-300 mx-10"
             >
               Go Home

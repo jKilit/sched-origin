@@ -14,7 +14,7 @@ function LoginPage() {
   const handleLogin = async () => {
     setErrorMessage(""); // Clear previous error message
     try {
-      const response = await fetch("http://localhost:3002/api/users/login", {
+      const response = await fetch("https://sched-origin-api.onrender.com/api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

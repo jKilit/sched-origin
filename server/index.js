@@ -20,10 +20,10 @@ app.use('/api/users', userRoutes);
 app.use('/api/shifts', shiftRoutes);
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({
-  origin: `https://sched-origin.onrender.com/`
-}));
-
+// app.use(cors({
+//   origin: `https://sched-origin.onrender.com/`
+// }));
+app.use(cors());
 
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,

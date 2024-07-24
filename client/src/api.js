@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 export const fetchShifts = async () => {
   try {
     const token = Cookies.get("authToken");
-    const response = await fetch("http://localhost:3002/api/shifts", {
+    const response = await fetch("https://sched-origin-api.onrender.com/api/shifts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const fetchAvailability = async (userId) => {
       throw new Error("No token found");
     }
     const response = await fetch(
-      `http://localhost:3002/api/availabilities/${userId}`,
+      `https://sched-origin-api.onrender.com/api/availabilities/${userId}`,
       {
         method: "GET",
         headers: {
@@ -58,7 +58,7 @@ export const fetchAvailability = async (userId) => {
 export const fetchUsers = async () => {
   try {
     const token = Cookies.get("authToken");
-    const response = await fetch("http://localhost:3002/api/users", {
+    const response = await fetch("https://sched-origin-api.onrender.com/api/users", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

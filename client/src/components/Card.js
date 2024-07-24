@@ -24,7 +24,7 @@ const Card = ({
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3002/api/availabilities/${userId}`,
+        `https://sched-origin-api.onrender.com/api/availabilities/${userId}`,
         {
           method: "DELETE",
           headers: {

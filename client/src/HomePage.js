@@ -67,7 +67,7 @@ function HomePage() {
   const handleDeleteAvilableDates = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3002/api/availabilities/${userId}`,
+        `https://sched-origin-api.onrender.com/api/availabilities/${userId}`,
         {
           method: "DELETE",
           headers: {
@@ -94,7 +94,7 @@ function HomePage() {
   const handleDeleteUnavilableDates = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3002/api/availabilities/${userId}`,
+        `https://sched-origin-api.onrender.com/api/availabilities/${userId}`,
         {
           method: "DELETE",
           headers: {

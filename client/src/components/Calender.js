@@ -81,7 +81,7 @@ function Calender({ onDatesUpdated }) {
 
       }
 
-      const response = await fetch(`http://localhost:3002/api/availabilities`, {
+      const response = await fetch("https://sched-origin-api.onrender.com/api/availabilities", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

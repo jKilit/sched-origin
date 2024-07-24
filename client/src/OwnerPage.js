@@ -44,13 +44,16 @@ function OwnerPage() {
   const handleRegister = async () => {
     setRegisterMessage(""); // Clear previous message
     try {
-      const response = await fetch("http://localhost:3002/api/users/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password, role: "employee" }),
-      });
+      const response = await fetch(
+        "https://sched-origin-api.onrender.com/api/users/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password, role: "employee" }),
+        }
+      );
 
       if (response.ok) {
         setRegisterMessage("Registration successful!");
@@ -83,13 +86,12 @@ function OwnerPage() {
     if (userId) {
       try {
         const response = await fetch(
-          `http://localhost:3002/api/users/delete/${userId}`,
+          `https://sched-origin-api.onrender.com/api/users/delete/${userId}`,
           {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
-
             },
           }
         );

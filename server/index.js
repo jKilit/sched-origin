@@ -21,7 +21,7 @@ app.use('/api/shifts', shiftRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: `http://localhost:3000`
+  origin: `https://sched-origin.onrender.com/`
 }));
 
 

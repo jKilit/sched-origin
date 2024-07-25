@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 
 function HomePage() {
   const { isAuthenticated, logout } = useContext(AuthContext);
-  const token = Cookies.get('authToken');
+  const token = Cookies.get("authToken");
   const [availability, setAvailability] = useState({
     availableDates: [],
     unavailableDates: [],
@@ -72,7 +72,7 @@ function HomePage() {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             deleteAvailableDates: availability.availableDates.map(
@@ -91,6 +91,7 @@ function HomePage() {
       console.error("Error removing dates:", error.message);
     }
   };
+
   const handleDeleteUnavilableDates = async () => {
     try {
       const response = await fetch(
@@ -99,7 +100,7 @@ function HomePage() {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             deleteUnavailableDates: availability.unavailableDates.map(
@@ -126,7 +127,7 @@ function HomePage() {
       ) : (
         <MenuAppBar />
       )}
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {isAuthenticated && (
           <div className="flex justify-end mb-8">
             <button
@@ -137,16 +138,16 @@ function HomePage() {
             </button>
           </div>
         )}
-        <div className="bg-white rounded-lg shadow-md p-8 lg:p-12">
-          <h2 className="text-4xl font-extrabold text-gray-800 mb-6 lg:mb-8">
+        <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 lg:p-8 flex flex-col items-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-800 mb-4 sm:mb-6 lg:mb-8">
             Welcome, {username}!
           </h2>
-          <div className="mb-12 lg:mb-16">
+          <div className="mb-8 sm:mb-12 lg:mb-16">
             <Calender onDatesUpdated={refreshAvailabilityfunc} />
           </div>
-          <div className="space-y-10 lg:space-y-12">
+          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
             <div>
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4 lg:mb-6 bg-blue-100 p-3 border-l-4 border-blue-500">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 lg:mb-6 bg-blue-100 p-3 border-l-4 border-blue-500">
                 Jag är också tillgänglig:
               </h3>
               <div className="flex flex-wrap justify-center">
@@ -167,16 +168,18 @@ function HomePage() {
                   ))}
               </div>
               {availability.availableDates.length > 0 && (
-                <button
-                  className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded shadow-md transition duration-200"
-                  onClick={handleDeleteAvilableDates}
-                >
-                  Delete all available dates
-                </button>
+                <div className="flex justify-center mt-4">
+                  <button
+                    className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded shadow-md transition duration-200"
+                    onClick={handleDeleteAvilableDates}
+                  >
+                    Delete all available dates
+                  </button>
+                </div>
               )}
             </div>
             <div>
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4 lg:mb-6 bg-red-100 p-3 border-l-4 border-red-500">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 lg:mb-6 bg-red-100 p-3 border-l-4 border-red-500">
                 Jag kan inte jobba:
               </h3>
               <div className="flex flex-wrap justify-center">
@@ -197,12 +200,14 @@ function HomePage() {
                   ))}
               </div>
               {availability.unavailableDates.length > 0 && (
-                <button
-                  className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded shadow-md transition duration-200"
-                  onClick={handleDeleteUnavilableDates}
-                >
-                  Delete all unavailable dates
-                </button>
+                <div className="flex justify-center mt-4">
+                  <button
+                    className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded shadow-md transition duration-200"
+                    onClick={handleDeleteUnavilableDates}
+                  >
+                    Delete all unavailable dates
+                  </button>
+                </div>
               )}
             </div>
           </div>

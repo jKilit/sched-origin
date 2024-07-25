@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import Cookies from "js-cookie";
 
-
 const Card = ({
   dateId,
   date,
@@ -11,7 +10,6 @@ const Card = ({
   endTime,
   dayOfWeek,
   colorClass,
-  maxWidth,
   additionalClass,
   removeDate,
   includeDelete,
@@ -50,21 +48,22 @@ const Card = ({
 
   return (
     <div
-      className={`rounded-lg shadow-md p-6 m-2 ${colorClass} ${additionalClass}`}
-      style={{ maxWidth: maxWidth || "45%" }}
+      className={`rounded-lg shadow-md p-4 sm:p-6 m-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 ${colorClass} ${additionalClass}`}
     >
-      <h3 className="text-xl font-semibold mb-2">{dayOfWeek}</h3>
-      <p>{formattedDate}</p>
+      <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">
+        {dayOfWeek}
+      </h3>
+      <p className="text-sm sm:text-base">{formattedDate}</p>
       {startTime && endTime && (
         <>
-          <p>Start Time: {startTime}</p>
-          <p>End Time: {endTime}</p>
+          <p className="text-sm sm:text-base">Start Time: {startTime}</p>
+          <p className="text-sm sm:text-base">End Time: {endTime}</p>
         </>
       )}
       {includeDelete && (
         <button
           onClick={() => handleDelete()}
-          className="bg-red-400 text-white px-2 rounded hover:bg-red-600"
+          className="mt-2 bg-red-400 text-white px-2 py-1 rounded hover:bg-red-600 text-sm sm:text-base"
         >
           Delete
         </button>

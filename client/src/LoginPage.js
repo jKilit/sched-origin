@@ -52,7 +52,7 @@ function LoginPage() {
       style={{ backgroundImage: "url('images/vattenbild.jpeg')" }}
     >
       <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-md mx-4 sm:mx-auto">
-        <h2 className="text-2xl font-bold mb-4 text-center">Login Page</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
         <form>
           <div className="mb-4">
             <label

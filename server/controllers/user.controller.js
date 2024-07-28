@@ -74,7 +74,8 @@ const allUsers = async (req, res) => {
         });
         res.status(200).json(usersWithoutPassword, "Utan password");
     } catch (error) {
-        console.error('Error fetching users:', error); // Log the exact error
+        res.status(500).json(error);
+        console.log(error);
     }
 };
 

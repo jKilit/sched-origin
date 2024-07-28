@@ -58,7 +58,7 @@ export const fetchAvailability = async (userId) => {
 export const fetchUsers = async () => {
   try {
     const token = Cookies.get("authToken");
-    const response = await fetch("https://sched-origin-api.onrender.com/api/users/", {
+    const response = await fetch("https://sched-origin-api.onrender.com/api/users", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

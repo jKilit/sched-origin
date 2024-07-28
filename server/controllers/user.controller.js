@@ -68,7 +68,11 @@ const login = async (req, res) => {
 const allUsers = async (req, res) => {
     try {
         const users = await User.find();
-        res.status(200).json(users);
+        const usersWithoutPassword = users.map(user => {
+            const { password, ...userWithoutPassword } = user.toObject();
+            return userWithoutPassword;
+        });
+        res.status(200).json(usersWithoutPassword, "Utan password");
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

@@ -8,11 +8,13 @@ function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  const [isLoading, setIsLoading] = useState(false); // State for loading
   const { login, isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     setErrorMessage(""); // Clear previous error message
+    setIsLoading(true); // Start loading
     try {
       const response = await fetch(
         "https://sched-origin-api.onrender.com/api/users/login",
@@ -37,6 +39,8 @@ function LoginPage() {
     } catch (error) {
       console.error("Error logging in:", error);
       setErrorMessage("An error occurred during login. Please try again."); // Set generic error message
+    } finally {
+      setIsLoading(false); // End loading
     }
   };
 
@@ -92,9 +96,35 @@ function LoginPage() {
           <button
             type="button"
             onClick={handleLogin}
-            className="w-full bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
+            disabled={isLoading}
+            className={`w-full bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600 ${
+              isLoading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
-            Login
+            {isLoading ? (
+              <svg
+                className="animate-spin h-5 w-5 mr-3 text-white inline-block"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4l3.5-3.5L12 4z"
+                ></path>
+              </svg>
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
       </div>

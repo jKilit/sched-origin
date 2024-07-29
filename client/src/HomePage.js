@@ -148,7 +148,7 @@ function HomePage() {
           <div className="space-y-8 sm:space-y-10 lg:space-y-12">
             <div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 lg:mb-6 bg-blue-100 p-3 border-l-4 border-blue-500">
-                Jag är också tillgänglig:
+                Jag är tillgänglig:
               </h3>
               <div className="flex flex-wrap justify-center">
                 {availability.availableDates &&

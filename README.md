@@ -22,7 +22,7 @@ This project is a web application for managing dinner and drink schedules. It co
 
 1. Clone the repository:
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/jKilit/sched-origin.git
     ```
 
 2. Install dependencies for the client:
@@ -115,9 +115,3 @@ In the `server` directory, you can run:
 - `GET /api/availability/:id`: Get availability by ID.
 - `PUT /api/availability/:id`: Update availability by ID.
 - `DELETE /api/availability/:id`: Delete availability by ID.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

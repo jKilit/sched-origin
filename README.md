@@ -115,3 +115,11 @@ In the `server` directory, you can run:
 - `GET /api/availability/:id`: Get availability by ID.
 - `PUT /api/availability/:id`: Update availability by ID.
 - `DELETE /api/availability/:id`: Delete availability by ID.
+
+
+
+
+https://github.com/user-attachments/assets/2acd67a3-12c5-4b57-b0d5-9f98ec2686f3
+
+
+
